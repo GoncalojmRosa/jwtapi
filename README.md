@@ -1,1 +1,1 @@
-# jwtapi
+# GOLang API (JWT, MySQL & Tests)
