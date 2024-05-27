@@ -1,6 +1,7 @@
 package user
 
 import (
+	"fmt"
 	"goncalojrmosa/jwtapi/types"
 	"goncalojrmosa/jwtapi/utils"
 	"net/http"
@@ -36,8 +37,10 @@ func (h *Handler) handleRegister(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// check if user exists
-
-
-
+	_, err := h.store.GetUserByEmail(payload.Email)
+	if err != nil {
+		utils.WriteError(w, http.StatusInternalServerError, fmt.Errorf("user with email %s already exists", payload.Email))
+		return
+	}
 	// if not, create user
 }

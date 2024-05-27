@@ -40,6 +40,16 @@ func (s *Store) GetUserByEmail(email string) (*types.User, error) {
 	return u, nil
 }
 
+// CreateUser implements types.UserStore.
+func (s *Store) CreateUser(types.User) error {
+	panic("unimplemented")
+}
+
+// GetUserByID implements types.UserStore.
+func (s *Store) GetUserByID(id int) (*types.User, error) {
+	panic("unimplemented")
+}
+
 func scanRowIntoUser(rows *sql.Rows) (*types.User, error) {
 	u := new(types.User)
 
